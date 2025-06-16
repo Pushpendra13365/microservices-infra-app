@@ -1,0 +1,69 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-stacktrace: always
+
+spring:
+  datasource:
+    url: jdbc:postgresql://10.0.16.36:5432/infra_db_dev?currentSchema=user_management
+    username: ${DB_USERNAME:pushpendra}
+    password: ${DB_PASSWORD:pushpendra_infradbdev#2025}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        default_schema: user_management
+        format_sql: true
+        jdbc:
+          batch_size: 30
+          batch_versioned_data: true
+        order_inserts: true
+        order_updates: true
+  devtools:
+    restart:
+      enabled: true
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+  cache:
+    disabled: true
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+jwt:
+  secret: ${JWT_SECRET:ThisIsA64CharacterSecretKeyForHS512Algorithm1234567890AbCdEfGhIjKlMnOpQrStUvWxYz!!}
+  access-token-expiration-ms: 10800000
+
+
+security:
+  password:
+    history-length: 5
+  login:
+    max-attempts: 5
+    block-duration-ms: 900000
+  default-user:
+    name: Pushpendra
+    password: Pushpendra@123
