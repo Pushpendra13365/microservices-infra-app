@@ -23,7 +23,7 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     properties:
       hibernate:
-        default_schema: user_management
+        default_schema: public
         format_sql: true
         jdbc:
           batch_size: 30
