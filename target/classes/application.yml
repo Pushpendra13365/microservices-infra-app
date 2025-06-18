@@ -6,7 +6,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://10.0.16.36:5432/infra_db_dev?currentSchema=user_management
+    url: jdbc:postgresql://10.0.16.36:5432/infra_db_dev?currentSchema=public
     username: ${DB_USERNAME:pushpendra}
     password: ${DB_PASSWORD:pushpendra_infradbdev#2025}
     driver-class-name: org.postgresql.Driver
