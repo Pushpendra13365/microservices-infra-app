@@ -78,7 +78,7 @@ public class SecurityConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Infra App")
+                        .title("Infra-auth-service")
                         .version("0.0.1-SNAPSHOT")
                         .description("Development Environment API Docs"));
     }
